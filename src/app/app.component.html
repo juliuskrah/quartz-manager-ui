@@ -1,20 +1,77 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="quartz-container">
+  <div class="menu-section">
 
+    <mat-toolbar>
+      <button mat-icon-button aria-label="Open basic menu">
+        <mat-icon>dehaze</mat-icon>
+      </button> Quartz Manager
+    </mat-toolbar>
+
+    <mat-drawer-container class="content">
+      <mat-drawer mode="side" opened="true">
+        <mat-nav-list>
+          <!-- <ng-template let-item let-last="last" ngFor [ngForOf]="routes"> -->
+          <a mat-list-item>
+            <mat-icon>home</mat-icon>Manager</a>
+          <mat-divider></mat-divider>
+
+          <a mat-list-item>
+            <mat-icon>work</mat-icon>Jobs</a>
+          <!-- </ng-template> -->
+        </mat-nav-list>
+      </mat-drawer>
+      <mat-drawer-content>
+        <div class="drawer-content">
+          <h1>Dashboard</h1>
+          <mat-divider></mat-divider>
+
+          <div class="example-container">
+
+            <br/>
+            <button mat-raised-button color="accent" (click)="openDialog()">Add Job!</button>
+
+            <br/>
+            <br/>
+
+            <div class="example-container mat-elevation-z8">
+              <mat-table #table [dataSource]="dataSource">
+
+                <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+                <!-- Position Column -->
+                <ng-container matColumnDef="group">
+                  <mat-header-cell *matHeaderCellDef> Group </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.group}} </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                  <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="subject">
+                  <mat-header-cell *matHeaderCellDef> Subject </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.subject}} </mat-cell>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="to">
+                  <mat-header-cell *matHeaderCellDef> Receiver </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.to}} </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+              </mat-table>
+            </div>
+
+
+          </div>
+        </div>
+      </mat-drawer-content>
+    </mat-drawer-container>
+  </div>
+</div>

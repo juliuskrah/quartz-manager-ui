@@ -1,0 +1,49 @@
+.quartz-container {
+  display: flex;
+  flex-flow: row wrap;
+  .menu-section {
+    width: 100%;
+    margin: 20px;
+    .content {
+      height: 500px;
+      flex: 1 1 auto;
+    }
+    .drawer-content {
+      margin: 20px;
+    }
+    .mat-table {
+      overflow: auto;
+      max-height: 500px;
+    }
+  }
+  .end-icon {
+    justify-content: flex-end;
+  }
+  .sidebar-container {
+    width: 400px;
+    height: 200px;
+  }
+}
+
+.box {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+.box .row.header {
+  flex: 0 1 auto;
+  /* The above is shorthand for:
+  flex-grow: 0,
+  flex-shrink: 1,
+  flex-basis: auto
+  */
+}
+
+.box .row.content {
+  flex: 1 1 auto;
+}
+
+.box .row.footer {
+  flex: 0 1 40px;
+}

@@ -19,9 +19,16 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.quartz.findAllJobs().subscribe((jobs) => this.jobs = jobs);
-    // this.dataSource.data = this.jobs;
-    this.dataSource = new MatTableDataSource<JobDescriptor>(this.jobs);
+    this.quartz.findAllJobs().subscribe(
+      data => {
+        this.jobs = data;
+        // this.dataSource.data = this.jobs;
+        this.dataSource = new MatTableDataSource<JobDescriptor>(this.jobs);
+      },
+      err => {
+        console.log('Something went wrong!');
+      }
+    );
   }
 
   openDialog() {

@@ -11,10 +11,12 @@ import {
   MatInputModule,
   MatTableModule,
   MatDividerModule,
-  MatDialogModule
+  MatDialogModule,
+  MatGridListModule
 } from '@angular/material';
+import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import { NgModule, } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -43,7 +45,9 @@ import { ModalComponent } from './modal/modal.component';
     MatSelectModule,
     MatTableModule,
     MatDividerModule,
-    MatDialogModule
+    MatDialogModule,
+    MatGridListModule,
+    FormsModule
   ],
   exports: [
     MatMenuModule,

@@ -1,4 +1,4 @@
-import { MatTableDataSource, MatDialog} from '@angular/material';
+import { MatTableDataSource, MatDialog } from '@angular/material';
 import { Component, OnInit } from '@angular/core';
 import { QuartzService } from './quartz.service';
 import { ModalComponent } from './modal/modal.component';
@@ -33,7 +33,16 @@ export class AppComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(ModalComponent, {
-      height: '350px'
+      width: '100%'
+    });
+
+    dialogRef.componentInstance.addJob.subscribe((data) => {
+      data.to = [data.to];
+      this.quartz.createJobForGroup(data.group, data).subscribe(() => {
+        this.jobs.push(data);
+        this.dataSource.data = this.jobs;
+      }
+      );
     });
 
     dialogRef.afterClosed().subscribe(result => {

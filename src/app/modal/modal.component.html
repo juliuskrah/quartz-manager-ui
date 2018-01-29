@@ -1,15 +1,44 @@
-<div>
-  <mat-form-field>
-    <input matInput placeholder="Input">
-  </mat-form-field>
-
-  <mat-form-field>
-    <textarea matInput placeholder="Textarea"></textarea>
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-select placeholder="Select">
-      <mat-option value="opstion">Option</mat-option>
-    </mat-select>
-  </mat-form-field>
-</div>
+<h2 mat-dialog-title>Create Job</h2>
+<mat-dialog-content>
+  <mat-grid-list cols="2" rowHeight="6:1">
+    <mat-grid-tile>
+      <mat-form-field>
+        <input matInput placeholder="name" [(ngModel)]="job.name">
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field>
+        <input matInput placeholder="group" [(ngModel)]="job.group">
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field>
+        <input matInput placeholder="to" [(ngModel)]="job.to">
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field>
+        <input matInput placeholder="cc" [(ngModel)]="job.cc">
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field>
+        <input matInput placeholder="bcc" [(ngModel)]="job.bcc">
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field>
+        <input matInput placeholder="subject" [(ngModel)]="job.subject">
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2">
+      <mat-form-field>
+        <textarea matInput placeholder="message" [(ngModel)]="job.messageBody"></textarea>
+      </mat-form-field>
+    </mat-grid-tile>
+  </mat-grid-list>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close>Close</button>
+  <button mat-raised-button [mat-dialog-close] (click)="onCreateJob(job)">Create</button>
+</mat-dialog-actions>

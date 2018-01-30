@@ -23,13 +23,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { QuartzService } from './quartz.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthService } from './interceptors/auth.service';
-import { MenuComponent } from './menu/menu.component';
 import { ModalComponent } from './modal/modal.component';
 
 
 @NgModule({
-  declarations: [AppComponent, MenuComponent, ModalComponent],
+  declarations: [AppComponent, ModalComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -42,7 +40,6 @@ import { ModalComponent } from './modal/modal.component';
     MatListModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule,
     MatTableModule,
     MatDividerModule,
     MatDialogModule,
@@ -50,20 +47,9 @@ import { ModalComponent } from './modal/modal.component';
     FormsModule
   ],
   exports: [
-    MatMenuModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
-    MatListModule,
-    MatFormFieldModule
   ],
   providers: [
-    QuartzService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthService,
-      multi: true
-    }
+    QuartzService
   ],
   entryComponents: [ModalComponent],
   bootstrap: [AppComponent]

@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  apiBaseUrl: 'https://quartz-manager.herokuapp.com/api/v1.0'
+  apiBaseUrl: 'http://quartz.juliuskrah.com/api/v1.0'
 };
